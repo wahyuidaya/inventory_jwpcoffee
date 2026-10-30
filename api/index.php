@@ -17,9 +17,9 @@ foreach ($tmpDirs as $dir) {
     }
 }
 
-putenv('APP_DEBUG=true');
-$_ENV['APP_DEBUG'] = 'true';
-$_SERVER['APP_DEBUG'] = 'true';
+putenv('APP_DEBUG=false');
+$_ENV['APP_DEBUG'] = 'false';
+$_SERVER['APP_DEBUG'] = 'false';
 
 putenv('LOG_CHANNEL=stderr');
 $_ENV['LOG_CHANNEL'] = 'stderr';

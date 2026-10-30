@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<title>JWP Coffee — Inventory System</title>
+<title>JWP Coffee â€” Inventory System</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
@@ -136,13 +136,74 @@ code{background:#F2EDE4;padding:2px 6px;border-radius:4px;font-size:11px}
 .page-btn:hover { background: #F0EAE5; }
 .page-btn.active { background: #4A3728; color: #fff; border-color: #4A3728; }
 .page-btn.disabled { color: #C5B5AA; cursor: default; border-color: #F0EAE5; }
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+}
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--brown-dk);
+  border-radius: 2px;
+}
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 95;
+}
+.sidebar-overlay.show { display: block; }
+
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    top: 54px;
+    height: calc(100vh - 54px);
+    z-index: 100;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .main-wrap {
+    margin-left: 0;
+  }
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .grid-2, .grid-2b {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 480px) {
+  .stat-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .page-content {
+    padding: 14px;
+  }
+}
 </style>
 </head>
 <body>
 
-<aside class="sidebar">
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleInventorySidebar()"></div>
+
+<aside class="sidebar" id="inventorySidebar">
   <div class="sidebar-brand">
-    <h1>☕ JWP Coffee</h1>
+    <h1>â˜• JWP Coffee</h1>
     <span>Inventory System</span>
   </div>
 
@@ -231,7 +292,10 @@ code{background:#F2EDE4;padding:2px 6px;border-radius:4px;font-size:11px}
 
 <div class="main-wrap">
   <header class="topbar">
-    <span class="topbar-title">@yield('page-title', 'Dashboard')</span>
+    <div style="display:flex;align-items:center;">
+      <button type="button" class="menu-toggle" onclick="toggleInventorySidebar()" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+      <span class="topbar-title">@yield('page-title', 'Dashboard')</span>
+    </div>
     <div class="topbar-right">
       @php $lowCount = \App\Models\Product::whereColumn('stock', '<=', 'minimum_stock')->count(); @endphp
       <span class="badge-notif"><i class="fa-solid fa-triangle-exclamation"></i> {{ $lowCount }} stok rendah</span>
@@ -253,6 +317,7 @@ code{background:#F2EDE4;padding:2px 6px;border-radius:4px;font-size:11px}
 
 <div id="modalArea"></div>
 <script>
+function toggleInventorySidebar() { var sb = document.getElementById('inventorySidebar'); var ov = document.getElementById('sidebarOverlay'); if(sb) sb.classList.toggle('open'); if(ov) ov.classList.toggle('show'); }
 function closeModal(e, overlay) {
   if (!e || e.target === overlay) document.getElementById('modalArea').innerHTML = '';
 }
@@ -261,3 +326,6 @@ function closeModal(e, overlay) {
 @stack('scripts')
 </body>
 </html>
+
+
+
