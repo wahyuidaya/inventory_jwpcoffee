@@ -63,11 +63,11 @@ return [
                 env('DB_SSL', false) ? [
                     PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA', true),
                     PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-                    PDO::ATTR_PERSISTENT => true,
-                    PDO::ATTR_EMULATE_PREPARES => true,
+                    
+                    
                 ] : [
-                    PDO::ATTR_PERSISTENT => true,
-                    PDO::ATTR_EMULATE_PREPARES => true,
+                    
+                    
                 ]
             ) : [],
         ],
@@ -91,11 +91,11 @@ return [
                 env('DB_SSL', false) ? [
                     PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA', true),
                     PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
-                    PDO::ATTR_PERSISTENT => true,
-                    PDO::ATTR_EMULATE_PREPARES => true,
+                    
+                    
                 ] : [
-                    PDO::ATTR_PERSISTENT => true,
-                    PDO::ATTR_EMULATE_PREPARES => true,
+                    
+                    
                 ]
             ) : [],
         ],
@@ -198,3 +198,5 @@ return [
     ],
 
 ];
+
+
