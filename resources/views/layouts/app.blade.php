@@ -294,7 +294,10 @@ code{background:#F2EDE4;padding:2px 6px;border-radius:4px;font-size:11px}
   <header class="topbar">
     <div style="display:flex;align-items:center;">
       <button type="button" class="menu-toggle" onclick="toggleInventorySidebar()" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+    <div style="display:flex;align-items:center;">
+      <button type="button" class="menu-toggle" onclick="toggleInventorySidebar()" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
       <span class="topbar-title">@yield('page-title', 'Dashboard')</span>
+    </div>
     </div>
     <div class="topbar-right">
       @php $lowCount = \App\Models\Product::whereColumn('stock', '<=', 'minimum_stock')->count(); @endphp
