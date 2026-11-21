@@ -79,23 +79,6 @@ body{font-family:'DM Sans',sans-serif;background:#2C1A0E;display:flex;align-item
       <i class="fa-solid fa-right-to-bracket"></i> Masuk
     </button>
   </form>
-
-  <div style="margin-top:16px;padding:12px;background:#FAF7F2;border:1px dashed #C8A97E;border-radius:10px;text-align:left;">
-    <div style="font-size:11px;font-weight:700;color:#8B5E3C;text-transform:uppercase;margin-bottom:6px;">Akun Demo Live:</div>
-    <div style="font-size:12px;color:#4A2C1A;display:flex;justify-content:space-between;margin-bottom:4px;">
-      <span><strong>Admin:</strong> admin@gmail.com</span>
-      <span style="color:#8B5E3C;cursor:pointer;text-decoration:underline;" onclick="fillDemo('admin@gmail.com','admin123')">Pakai</span>
-    </div>
-    <div style="font-size:12px;color:#4A2C1A;display:flex;justify-content:space-between;">
-      <span><strong>Pimpinan:</strong> pimpinan@gmail.com</span>
-      <span style="color:#8B5E3C;cursor:pointer;text-decoration:underline;" onclick="fillDemo('pimpinan@gmail.com','pimpinan123')">Pakai</span>
-    </div>
-    <div style="font-size:11px;color:#9A8070;margin-top:6px;">Password: <code>admin123</code> / <code>pimpinan123</code></div>
-  </div>
-
-  <div style="text-align:center;margin-top:16px;display:flex;flex-direction:column;gap:8px;">
-    <a href="{{ route('portal') }}" style="font-size:12px;font-weight:600;color:#8B5E3C;text-decoration:none;">&larr; Kembali ke Portal JWP Coffee</a>
-  </div>
 </div>
 <script>
 window.addEventListener('DOMContentLoaded', function() {
