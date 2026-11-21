@@ -95,7 +95,6 @@ body{font-family:'DM Sans',sans-serif;background:#2C1A0E;display:flex;align-item
 
   <div style="text-align:center;margin-top:16px;display:flex;flex-direction:column;gap:8px;">
     <a href="{{ route('portal') }}" style="font-size:12px;font-weight:600;color:#8B5E3C;text-decoration:none;">&larr; Kembali ke Portal JWP Coffee</a>
-    <a href="https://wahyuidaya.github.io" style="font-size:11px;color:#9A8070;text-decoration:none;">&larr; Portofolio Wahyu Idaya</a>
   </div>
 </div>
 <script>
