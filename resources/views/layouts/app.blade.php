@@ -209,8 +209,9 @@ code{background:#F2EDE4;padding:2px 6px;border-radius:4px;font-size:11px}
     overflow-x: hidden !important;
     max-width: 100vw !important;
   }
-  main, .main-content, .content, .content-wrapper, .page-content, .card, .panel {
-    max-width: 100% !important;
+  main, .main-wrap, .main-content, .content, .content-wrapper, .page-content, .card, .panel {
+    width: 100% !important;
+    max-width: 100vw !important;
     min-width: 0 !important;
   }
   .table-responsive, .table-wrap, .table-container {
